@@ -2,7 +2,7 @@
 library(rstudioapi)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
-raw_df <- read.csv("cd data/week3.csv")
+raw_df <- read.csv("../data/week3.csv")
 raw_df$timeStart <- as.POSIXct(raw_df$timeStart)
 raw_df$timeEnd <- as.POSIXct(raw_df$timeEnd)
 clean_df <- subset(raw_df, ((timeStart - c(as.POSIXct("2017-06-01", tz = "CDT"))) <= 0 | (timeEnd - c(as.POSIXct("2017-06-30", tz = "CDT")) >= 0)))
